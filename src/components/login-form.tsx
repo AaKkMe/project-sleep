@@ -12,8 +12,9 @@ import { Label } from "@/components/ui/label"
 
 export function LoginForm({
   className,
+  onToggleForm,
   ...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div"> & { onToggleForm: () => void }) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -59,9 +60,9 @@ export function LoginForm({
             
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
-              <a href="#" className="underline underline-offset-4">
+              <button type="button" onClick={onToggleForm} className="underline underline-offset-4">
                 Sign up
-              </a>
+              </button>
             </div>
           </form>
         </CardContent>

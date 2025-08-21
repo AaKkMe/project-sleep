@@ -12,8 +12,9 @@ import { Label } from "@/components/ui/label"
 
 export function RegForm({
   className,
+  onToggleForm,
   ...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div"> & { onToggleForm: () => void }) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -81,6 +82,12 @@ export function RegForm({
                 Log In
               </a>
             </div> */}
+          <div className="mt-4 text-center text-sm">
+              Already have an account?{" "}
+              <button type="button" onClick={onToggleForm} className="underline underline-offset-4">
+                Log In
+              </button>
+            </div>
           </form>
         </CardContent>
       </Card>
